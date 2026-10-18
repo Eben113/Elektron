@@ -1,0 +1,5 @@
+fastapi
+uvicorn[standard]
+paho-mqtt>=2.0
+influxdb3-python
+python-dotenv

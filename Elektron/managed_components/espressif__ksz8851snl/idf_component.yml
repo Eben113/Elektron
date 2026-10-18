@@ -1,0 +1,13 @@
+dependencies:
+  idf: '>=6.0'
+description: KSZ8851SNL Ethernet Driver
+files:
+  exclude:
+  - test_apps/**/*
+  - .build-test-rules.yml
+repository: git://github.com/espressif/esp-eth-drivers.git
+repository_info:
+  commit_sha: 7c6ae283a34bffefee1731dba564ac2f1f1b9437
+  path: ksz8851snl
+url: https://github.com/espressif/esp-eth-drivers/tree/master/ksz8851snl
+version: 1.2.0

@@ -1,0 +1,48 @@
+Command: /home/ebenezer/.espressif/tools/python/v6.1/venv/bin/python /home/ebenezer/.espressif/v6.1/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/ebenezer/Documents/projects/Elektron/Elektron/build/Elektron.elf /home/ebenezer/Documents/projects/Elektron/Elektron/build/bootloader/bootloader.elf -m '/home/ebenezer/.espressif/tools/python/v6.1/venv/bin/python' '/home/ebenezer/.espressif/v6.1/esp-idf/tools/idf.py' '-p' '/dev/ttyUSB0'
+--- esp-idf-monitor 1.10.0 on /dev/ttyUSB0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+--- 0x40080400: _invalid_pc_placeholder at /home/ebenezer/.espressif/v6.1/esp-idf/components/xtensa/xtensa_vectors.S:2259
+--- 0x40080644: call_start_cpu0 at /home/ebenezer/.espressif/v6.1/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+--- 0x40084142: esp_crosscore_isr at /home/ebenezer/.espressif/v6.1/esp-idf/components/esp_system/crosscore_int.c:74
+--- 0x40083519: _xt_lowint1 at /home/ebenezer/.espressif/v6.1/esp-idf/components/xtensa/xtensa_vectors.S:1264
+--- 0x4000bfed: _xtos_set_intlevel in ROM
+--- 0x4008aada: vPortClearInterruptMaskFromISR at /home/ebenezer/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:547(inlined by) vPortExitCritical at /home/ebenezer/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:528
+--- 0x4017bdf3: xQueueSemaphoreTake at /home/ebenezer/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:1777
+--- 0x40107246: sys_mutex_lock at /home/ebenezer/.espressif/v6.1/esp-idf/components/lwip/port/freertos/sys_arch.c:65
+--- 0x401075b8: sys_arch_protect at /home/ebenezer/.espressif/v6.1/esp-idf/components/lwip/port/freertos/sys_arch.c:470
+--- 0x400f200d: sock_inc_used at /home/ebenezer/.espressif/v6.1/esp-idf/components/lwip/lwip/src/api/sockets.c:381
+--- 0x400f204f: tryget_socket_unconn at /home/ebenezer/.espressif/v6.1/esp-idf/components/lwip/lwip/src/api/sockets.c:472
+--- 0x400f24ae: tryget_socket at /home/ebenezer/.espressif/v6.1/esp-idf/components/lwip/lwip/src/api/sockets.c:505
+--- 0x400f24c9: get_socket at /home/ebenezer/.espressif/v6.1/esp-idf/components/lwip/lwip/src/api/sockets.c:524
+--- 0x400f474e: lwip_ioctl at /home/ebenezer/.espressif/v6.1/esp-idf/components/lwip/lwip/src/api/sockets.c:3827
+--- 0x400e8085: NetworkClientRxBuffer::r_available() at /home/ebenezer/Documents/projects/Elektron/Elektron/managed_components/espressif__arduino-esp32/libraries/Network/src/NetworkClient.cpp:54
+--- 0x400e80c0: NetworkClientRxBuffer::available() at /home/ebenezer/Documents/projects/Elektron/Elektron/managed_components/espressif__arduino-esp32/libraries/Network/src/NetworkClient.cpp:148(inlined by) NetworkClient::available() at /home/ebenezer/Documents/projects/Elektron/Elektron/managed_components/espressif__arduino-esp32/libraries/Network/src/NetworkClient.cpp:557
+--- 0x400e22a8: PubSubClient::connect(char const*, char const*, char const*, char const*, unsigned char, bool, char const*, bool) at /home/ebenezer/Documents/projects/Elektron/Elektron/lib/PubSubClient/src/PubSubClient.cpp:257
+--- 0x400e2309: PubSubClient::connect(char const*, char const*, char const*, char const*, unsigned char, bool, char const*) at /home/ebenezer/Documents/projects/Elektron/Elektron/lib/PubSubClient/src/PubSubClient.cpp:178
+--- 0x400df919: mqttConnected() at /home/ebenezer/Documents/projects/Elektron/Elektron/lib/publisher/publisher.cpp:100
+--- 0x400e11f0: linkUp() at /home/ebenezer/Documents/projects/Elektron/Elektron/lib/publisher/publisher.cpp:124
+--- 0x400e12d8: publishHeartbeat(State) at /home/ebenezer/Documents/projects/Elektron/Elektron/lib/publisher/publisher.cpp:162
+--- 0x400df647: reportTask(void*) at /home/ebenezer/Documents/projects/Elektron/Elektron/main/Elektron.cpp:51
+--- 0x4017b596: vPortTaskWrapper at /home/ebenezer/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:147
+--- 0x40084142: esp_crosscore_isr at /home/ebenezer/.espressif/v6.1/esp-idf/components/esp_system/crosscore_int.c:74
+--- 0x40083519: _xt_lowint1 at /home/ebenezer/.espressif/v6.1/esp-idf/components/xtensa/xtensa_vectors.S:1264
+--- 0x4000bfed: _xtos_set_intlevel in ROM
+--- 0x4008aada: vPortClearInterruptMaskFromISR at /home/ebenezer/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:547(inlined by) vPortExitCritical at /home/ebenezer/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:528
+--- 0x4017bb2f: xQueueGenericSend at /home/ebenezer/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:1056
+--- 0x4010726e: sys_mutex_unlock at /home/ebenezer/.espressif/v6.1/esp-idf/components/lwip/port/freertos/sys_arch.c:79
+--- 0x401075c6: sys_arch_unprotect at /home/ebenezer/.espressif/v6.1/esp-idf/components/lwip/port/freertos/sys_arch.c:483
+--- 0x400f203a: sock_inc_used at /home/ebenezer/.espressif/v6.1/esp-idf/components/lwip/lwip/src/api/sockets.c:390
+--- 0x400f204f: tryget_socket_unconn at /home/ebenezer/.espressif/v6.1/esp-idf/components/lwip/lwip/src/api/sockets.c:472
+--- 0x400f24ae: tryget_socket at /home/ebenezer/.espressif/v6.1/esp-idf/components/lwip/lwip/src/api/sockets.c:505
+--- 0x400f24c9: get_socket at /home/ebenezer/.espressif/v6.1/esp-idf/components/lwip/lwip/src/api/sockets.c:524
+--- 0x400f474e: lwip_ioctl at /home/ebenezer/.espressif/v6.1/esp-idf/components/lwip/lwip/src/api/sockets.c:3827
+--- 0x400e8085: NetworkClientRxBuffer::r_available() at /home/ebenezer/Documents/projects/Elektron/Elektron/managed_components/espressif__arduino-esp32/libraries/Network/src/NetworkClient.cpp:54
+--- 0x400e80c0: NetworkClientRxBuffer::available() at /home/ebenezer/Documents/projects/Elektron/Elektron/managed_components/espressif__arduino-esp32/libraries/Network/src/NetworkClient.cpp:148(inlined by) NetworkClient::available() at /home/ebenezer/Documents/projects/Elektron/Elektron/managed_components/espressif__arduino-esp32/libraries/Network/src/NetworkClient.cpp:557
+--- 0x400e22a8: PubSubClient::connect(char const*, char const*, char const*, char const*, unsigned char, bool, char const*, bool) at /home/ebenezer/Documents/projects/Elektron/Elektron/lib/PubSubClient/src/PubSubClient.cpp:257
+--- 0x400e2309: PubSubClient::connect(char const*, char const*, char const*, char const*, unsigned char, bool, char const*) at /home/ebenezer/Documents/projects/Elektron/Elektron/lib/PubSubClient/src/PubSubClient.cpp:178
+--- 0x400df919: mqttConnected() at /home/ebenezer/Documents/projects/Elektron/Elektron/lib/publisher/publisher.cpp:100
+--- 0x400e11f0: linkUp() at /home/ebenezer/Documents/projects/Elektron/Elektron/lib/publisher/publisher.cpp:124
+--- 0x400e12d8: publishHeartbeat(State) at /home/ebenezer/Documents/projects/Elektron/Elektron/lib/publisher/publisher.cpp:162
+--- 0x400df647: reportTask(void*) at /home/ebenezer/Documents/projects/Elektron/Elektron/main/Elektron.cpp:51
+--- 0x4017b596: vPortTaskWrapper at /home/ebenezer/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:147
+

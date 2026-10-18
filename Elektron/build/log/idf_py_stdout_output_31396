@@ -1,0 +1,126 @@
+Command: /home/ebenezer/.espressif/tools/python/v6.1/venv/bin/python /home/ebenezer/.espressif/v6.1/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/ebenezer/Documents/projects/Elektron/Elektron/build/Elektron.elf /home/ebenezer/Documents/projects/Elektron/Elektron/build/bootloader/bootloader.elf -m '/home/ebenezer/.espressif/tools/python/v6.1/venv/bin/python' '/home/ebenezer/.espressif/v6.1/esp-idf/tools/idf.py' '-p' '/dev/ttyUSB0'
+[0;32mI (13) boot: ESP-IDF v6.1 2nd stage bootloader[0m
+[0;32mI (13) boot: compile time Oct 17 2026 04:43:40[0m
+[0;32mI (13) boot: Multicore bootloader[0m
+[0;32mI (14) boot: chip revision: v3.1[0m
+[0;32mI (16) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (20) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (24) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (27) boot: Enabling RNG early entropy source...[0m
+[0;32mI (32) boot: Partition Table:[0m
+[0;32mI (34) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (41) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (47) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (54) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (60) boot: End of partition table[0m
+[0;32mI (63) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=22f78h (143224) map[0m
+[0;32mI (122) esp_image: segment 1: paddr=00032fa0 vaddr=3ffb0000 size=04764h ( 18276) load[0m
+[0;32mI (129) esp_image: segment 2: paddr=0003770c vaddr=40080000 size=0890ch ( 35084) load[0m
+[0;32mI (144) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=af5ach (718252) map[0m
+[0;32mI (400) esp_image: segment 4: paddr=000ef5d4 vaddr=4008890c size=0dc3ch ( 56380) load[0m
+[0;32mI (423) esp_image: segment 5: paddr=000fd218 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (435) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (435) boot: Disabling RNG early entropy source...[0m
+[0;32mI (446) cpu_start: Multicore app[0m
+[0;32mI (454) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (454) cpu_start: Pro cpu start user code[0m
+[0;32mI (454) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (456) app_init: Application information:[0m
+[0;32mI (460) app_init: Project name:     Elektron[0m
+[0;32mI (464) app_init: App version:      1[0m
+[0;32mI (467) app_init: Compile time:     Oct 17 2026 04:44:35[0m
+[0;32mI (472) app_init: ELF file SHA256:  43acd8e27...[0m
+[0;32mI (477) app_init: ESP-IDF:          v6.1[0m
+[0;32mI (480) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (484) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (488) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (492) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (498) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (503) heap_init: At 3FFBA5D8 len 00025A28 (150 KiB): DRAM[0m
+[0;32mI (508) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (514) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (519) heap_init: At 40096548 len 00009AB8 (38 KiB): IRAM[0m
+[0;32mI (526) spi_flash: detected chip: generic[0m
+[0;32mI (528) spi_flash: flash io: dio[0m
+[0;33mW (531) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (546) main_task: Started on CPU0[0m
+[0;32mI (547) main_task: Calling app_main()[0m
+[0;32mI (575) ua^:[0m
+[boot] Elektron firmware starting
+[modem] initializing publisher
+[0;32mI (579) uart: queue free spaces: 20[0m
+SIM status: 0
+[modem] publisher initialized
+[boot] sensor event queue created (capacity=16)
+[boot] sensor initialized
+[report] task started
+[boot] report task created
+[0;32mI (133798) main_task: Returned from app_main()[0m
+[sensor] state=OFF at 133272951 us
+GSM: SIM not ready
+[mqtt] event pending; queue=1
+GSM failed repeatedly, falling back to WiFi
+transport -> WiFi
+[0;32mI (171719) wifi:wifi driver task: 3ffc64c0, prio:23, stack:6656, core=0[0m
+[0;32mI (171735) wifi:wifi firmware version: e12a754[0m
+[0;32mI (171735) wifi:wifi certification version: v7.0[0m
+[0;32mI (171736) wifi:config NVS flash: enabled[0m
+[0;32mI (171736) wifi:config nano formatting: disabled[0m
+[0;32mI (171741) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (171746) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (171750) wifi:Init management short buffer num: 32[0m
+[0;32mI (171755) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (171759) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (171763) wifi:Init static rx buffer num: 4[0m
+[0;32mI (171767) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (171773) wifi_init: rx ba win: 6[0m
+[0;32mI (171774) wifi_init: accept mbox: 6[0m
+[0;32mI (171778) wifi_init: tcpip mbox: 32[0m
+[0;32mI (171781) wifi_init: udp mbox: 6[0m
+[0;32mI (171784) wifi_init: tcp mbox: 6[0m
+[0;32mI (171787) wifi_init: tcp tx win: 5760[0m
+[0;32mI (171791) wifi_init: tcp rx win: 5760[0m
+[0;32mI (171794) wifi_init: tcp mss: 1440[0m
+[0;32mI (171797) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (171801) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (171810) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (171890) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (171912) wifi:mode : sta (58:2a:bd:75:0b:f4)[0m
+[0;32mI (171913) wifi:enable tsf[0m
+[0;32mI (171918) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;32mI (171931) wifi:new:<2,0>, old:<1,0>, ap:<255,255>, sta:<2,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (171933) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (171947) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (171979) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (173365) wifi:connected with elektron, aid = 1, channel 2, BW20, bssid = 7e:c4:8b:20:63:d1[0m
+[0;32mI (173366) wifi:security: WPA2-PSK, phy: bgn, rssi: -43, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (173375) wifi:pm start, type: 1[0m
+
+[0;32mI (173376) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (174420) esp_netif_handlers: sta ip: 192.168.231.179, mask: 255.255.255.0, gw: 192.168.231.102[0m
+[mqtt] event sent; pending=0
+[mqtt] heartbeat sent; state=OFF
+[0;32mI (187988) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (196996) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (206003) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (215011) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (224018) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (237918) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (253498) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (262511) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (271518) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (281026) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (290034) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (307735) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (316748) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (325755) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (334763) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (343792) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (352799) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (367736) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (376750) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (385757) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (394765) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (404273) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (413280) wifi:bcn_timeout,ap_probe_send_start[0m

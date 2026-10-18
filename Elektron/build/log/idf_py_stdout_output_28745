@@ -1,0 +1,340 @@
+Command: /home/ebenezer/.espressif/tools/python/v6.1/venv/bin/python /home/ebenezer/.espressif/v6.1/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/ebenezer/Documents/projects/Elektron/Elektron/build/Elektron.elf /home/ebenezer/Documents/projects/Elektron/Elektron/build/bootloader/bootloader.elf -m '/home/ebenezer/.espressif/tools/python/v6.1/venv/bin/python' '/home/ebenezer/.espressif/v6.1/esp-idf/tools/idf.py' '-p' '/dev/ttyUSB0'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15824
+load:0x40080400,len:3988
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Oct 17 2026 04:43:40[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (31) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=22f78h (143224) map[0m
+[0;32mI (137) esp_image: segment 1: paddr=00032fa0 vaddr=3ffb0000 size=04764h ( 18276) load[0m
+[0;32mI (144) esp_image: segment 2: paddr=0003770c vaddr=40080000 size=0890ch ( 35084) load[0m
+[0;32mI (159) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=af5ach (718252) map[0m
+[0;32mI (415) esp_image: segment 4: paddr=000ef5d4 vaddr=4008890c size=0dc3ch ( 56380) load[0m
+[0;32mI (439) esp_image: segment 5: paddr=000fd218 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (450) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (450) boot: Disabling RNG early entropy source...[0m
+[0;32mI (461) cpu_start: Multicore app[0m
+[0;32mI (469) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (469) cpu_start: Pro cpu start user code[0m
+[0;32mI (469) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (471) app_init: Application information:[0m
+[0;32mI (475) app_init: Project name:     Elektron[0m
+[0;32mI (479) app_init: App version:      1[0m
+[0;32mI (482) app_init: Compile time:     Oct 17 2026 04:44:35[0m
+[0;32mI (487) app_init: ELF file SHA256:  43acd8e27...[0m
+[0;32mI (492) app_init: ESP-IDF:          v6.1[0m
+[0;32mI (495) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (499) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (503) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (507) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (513) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (518) heap_init: At 3FFBA5D8 len 00025A28 (150 KiB): DRAM[0m
+[0;32mI (524) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (529) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (535) heap_init: At 40096548 len 00009AB8 (38 KiB): IRAM[0m
+[0;32mI (541) spi_flash: detected chip: generic[0m
+[0;32mI (543) spi_flash: flash io: dio[0m
+[0;33mW (546) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (561) main_task: Started on CPU0[0m
+[0;32mI (562) main_task: Calling app_main()[0m
+[0;32mI (590) uart:[0m
+[boot] Elektron firmware starting
+[modem] initializing publisher
+[0;32mI (594) uart: queue free spaces: 20[0m
+SIM status: 0
+[modem] publisher initialized
+[boot] sensor event queue created (capacity=16)
+[boot] sensor initialized
+[report] task started
+[boot] report task created
+[0;32mI (133814) main_task: Returned from app_main()[0m
+[sensor] state=OFF at 133273879 us
+GSM: SIM not ready
+[mqtt] event pending; queue=1
+GSM failed repeatedly, falling back to WiFi
+transport -> WiFi
+[0;32mI (171735) wifi:wifi driver task: 3ffc64c0, prio:23, stack:6656, core=0[0m
+[0;32mI (171750) wifi:wifi firmware version: e12a754[0m
+[0;32mI (171751) wifi:wifi certification version: v7.0[0m
+[0;32mI (171751) wifi:config NVS flash: enabled[0m
+[0;32mI (171752) wifi:config nano formatting: disabled[0m
+[0;32mI (171757) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (171762) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (171766) wifi:Init management short buffer num: 32[0m
+[0;32mI (171770) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (171775) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (171779) wifi:Init static rx buffer num: 4[0m
+[0;32mI (171783) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (171789) wifi_init: rx ba win: 6[0m
+[0;32mI (171790) wifi_init: accept mbox: 6[0m
+[0;32mI (171793) wifi_init: tcpip mbox: 32[0m
+[0;32mI (171797) wifi_init: udp mbox: 6[0m
+[0;32mI (171800) wifi_init: tcp mbox: 6[0m
+[0;32mI (171803) wifi_init: tcp tx win: 5760[0m
+[0;32mI (171806) wifi_init: tcp rx win: 5760[0m
+[0;32mI (171810) wifi_init: tcp mss: 1440[0m
+[0;32mI (171813) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (171817) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (171826) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (171907) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (171929) wifi:mode : sta (58:2a:bd:75:0b:f4)[0m
+[0;32mI (171930) wifi:enable tsf[0m
+[0;32mI (171935) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;32mI (172191) wifi:new:<2,0>, old:<1,0>, ap:<255,255>, sta:<2,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (172192) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (172200) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (172210) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (172245) wifi:connected with elektron, aid = 1, channel 2, BW20, bssid = 7e:c4:8b:20:63:d1[0m
+[0;32mI (172246) wifi:security: WPA2-PSK, phy: bgn, rssi: -45, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (172262) wifi:pm start, type: 1[0m
+
+[0;32mI (172263) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (173298) esp_netif_handlers: sta ip: 192.168.231.179, mask: 255.255.255.0, gw: 192.168.231.102[0m
+[mqtt] event sent; pending=0
+[mqtt] heartbeat sent; state=OFF
+[0;32mI (191543) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (200551) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (209566) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (218574) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (227582) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (240936) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (254181) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (263193) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (272200) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (281217) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (290229) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (300953) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (314176) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (323231) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (332251) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (341264) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (350299) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (360936) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (374180) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (383309) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (392318) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (401325) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (410334) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (420936) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (434176) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (443184) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (452192) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (461200) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (470213) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (480935) wifi:bcn_timeout,ap_probe_send_start[0m
+[mqtt] heartbeat sent; state=OFF
+[0;32mI (494927) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (503935) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (515178) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (524187) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (537935) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (546943) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (555950) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (572179) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (581194) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (590201) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (600939) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (609947) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (618959) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (635187) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (644195) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (657942) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (666955) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (675968) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (692189) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (701197) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (710212) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (720935) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (729943) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (738951) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (755182) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (764189) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (777943) wifi:bcn_timeout,ap_probe_send_start[0m
+transport -> GSM
+[0;32mI (791937) wifi:bcn_timeout,ap_probe_send_start[0m
+GSM: SIM not ready
+[mqtt] heartbeat deferred
+[0;32mI (800945) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (809956) wifi:bcn_timeout,ap_probe_send_start[0m
+GSM failed repeatedly, falling back to WiFi
+[0;32mI (818964) wifi:bcn_timeout,ap_probe_send_start[0m
+transport -> WiFi
+[1;31mE (828313) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (828313) task_wdt:  - IDLE1 (CPU 1)[0m
+[1;31mE (828313) task_wdt: Tasks currently running:[0m
+[1;31mE (828313) task_wdt: CPU 0: IDLE0[0m
+[1;31mE (828313) task_wdt: CPU 1: report[0m
+[1;31mE (828313) task_wdt: Print CPU 1 backtrace[0m
+
+
+Backtrace: 0x40084142:0x3FFB2930 0x40083519:0x3FFB2950 0x4000BFED:0x3FFC1B90 0x4008AADA:0x3FFC1BA0 0x4017BDF3:0x3FFC1BC0 0x40107246:0x3FFC1C00 0x401075B8:0x3FFC1C20 0x400F200D:0x3FFC1C40 0x400F204F:0x3FFC1C60 0x400F24AE:0x3FFC1C80 0x400F24C9:0x3FFC1CA0 0x400F474E:0x3FFC1CC0 0x400E8085:0x3FFC1CE0 0x400E80C0:0x3FFC1D10 0x400E22A8:0x3FFC1D40 0x400E2309:0x3FFC1DB0 0x400DF919:0x3FFC1DE0 0x400E11F0:0x3FFC1E80 0x400E12D8:0x3FFC1EA0 0x400DF647:0x3FFC2000 0x4017B596:0x3FFC2030
+
+[1;31mE (833313) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (833313) task_wdt:  - IDLE1 (CPU 1)[0m
+[1;31mE (833313) task_wdt: Tasks currently running:[0m
+[1;31mE (833313) task_wdt: CPU 0: sensor[0m
+[1;31mE (833313) task_wdt: CPU 1: report[0m
+[1;31mE (833313) task_wdt: Print CPU 1 backtrace[0m
+
+
+Backtrace: 0x40084142:0x3FFB2930 0x40083519:0x3FFB2950 0x4000BFED:0x3FFC1B90 0x4008AADA:0x3FFC1BA0 0x4017BB2F:0x3FFC1BC0 0x4010726E:0x3FFC1C00 0x401075C6:0x3FFC1C20 0x400F203A:0x3FFC1C40 0x400F204F:0x3FFC1C60 0x400F24AE:0x3FFC1C80 0x400F24C9:0x3FFC1CA0 0x400F474E:0x3FFC1CC0 0x400E8085:0x3FFC1CE0 0x400E80C0:0x3FFC1D10 0x400E22A8:0x3FFC1D40 0x400E2309:0x3FFC1DB0 0x400DF919:0x3FFC1DE0 0x400E11F0:0x3FFC1E80 0x400E12D8:0x3FFC1EA0 0x400DF647:0x3FFC2000 0x4017B596:0x3FFC2030
+
+MQTT connect failed, state=-4
+[mqtt] heartbeat deferred
+[0;32mI (843947) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (852964) wifi:bcn_timeout,ap_probe_send_start[0m
+[mqtt] heartbeat sent; state=OFF
+[0;32mI (872942) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (881950) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (890995) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (900937) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (909944) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (918952) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (932447) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (941454) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (950462) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (960943) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (969950) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (978957) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (992740) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1001748) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1010755) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1020945) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1029952) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1039002) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1052695) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1061702) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1070709) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1080948) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1089956) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1099464) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1112696) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1121703) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1130710) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1140944) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1149951) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1158958) wifi:bcn_timeout,ap_probe_send_start[0m
+[mqtt] heartbeat sent; state=OFF
+[0;32mI (1182448) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1197936) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1206944) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1218456) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1227464) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1236471) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1249005) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1266450) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1275458) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1284465) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1293472) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1302480) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1311487) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1320937) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1329944) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1338951) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1347958) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1356966) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1365976) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1380937) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1389944) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1398951) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1407958) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1416967) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1425974) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1440936) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1449944) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1458951) wifi:bcn_timeout,ap_probe_send_start[0m
+transport -> GSM
+[0;32mI (1467958) wifi:bcn_timeout,ap_probe_send_start[0m
+GSM: SIM not ready
+[mqtt] heartbeat deferred
+[0;32mI (1476966) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1485973) wifi:bcn_timeout,ap_probe_send_start[0m
+GSM failed repeatedly, falling back to WiFi
+transport -> WiFi
+[mqtt] heartbeat sent; state=OFF
+[0;32mI (1510873) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1519880) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1528890) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1537897) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1546905) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1560937) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1573623) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1582631) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1591688) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1600695) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1609702) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1620942) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1633624) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1642632) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1651639) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1660646) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1669675) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1680937) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1693625) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1702632) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1711640) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1720647) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1729655) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1740942) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1753628) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1762636) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1771644) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1780653) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1789660) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1800937) wifi:bcn_timeout,ap_probe_send_start[0m
+[mqtt] heartbeat sent; state=OFF
+[0;32mI (1814378) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1823385) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1834628) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1843635) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1857936) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1866944) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1875951) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1891629) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1900637) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1909644) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1920943) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1929952) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1938961) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1954631) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1963639) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1977937) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1986944) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1995951) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (2011632) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (2020639) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (2029647) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (2040962) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (2049969) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (2058977) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (2074634) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (2083641) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (2097942) wifi:bcn_timeout,ap_probe_send_start[0m
+transport -> GSM
+[0;32mI (2111390) wifi:bcn_timeout,ap_probe_send_start[0m
+GSM: SIM not ready
+[mqtt] heartbeat deferred
+[0;32mI (2120397) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (2129405) wifi:bcn_timeout,ap_probe_send_start[0m
+GSM failed repeatedly, falling back to WiFi
+[0;32mI (2138412) wifi:bcn_timeout,ap_probe_send_start[0m
+transport -> WiFi

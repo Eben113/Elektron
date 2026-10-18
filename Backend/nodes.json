@@ -1,0 +1,5 @@
+{
+  "n001": {"name": "Yaba Feeder",  "area": "Yaba",  "lat": 6.5095, "lng": 3.3711},
+  "n002": {"name": "Ikeja Feeder", "area": "Ikeja", "lat": 6.6018, "lng": 3.3515},
+  "n003": {"name": "Lekki Feeder", "area": "Lekki", "lat": 6.4698, "lng": 3.5852}
+}

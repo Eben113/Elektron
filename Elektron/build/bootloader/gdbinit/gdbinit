@@ -1,0 +1,2 @@
+source /home/ebenezer/Documents/projects/Elektron/Elektron/build/bootloader/gdbinit/symbols
+source /home/ebenezer/Documents/projects/Elektron/Elektron/build/bootloader/gdbinit/connect

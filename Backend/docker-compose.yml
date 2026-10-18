@@ -1,0 +1,26 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    ports: ["1883:1883"]
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - mosquitto-data:/mosquitto/data
+    restart: unless-stopped
+
+  influxdb:
+    image: influxdb:2.7
+    ports: ["8086:8086"]
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: admin
+      DOCKER_INFLUXDB_INIT_PASSWORD: adminpassword
+      DOCKER_INFLUXDB_INIT_ORG: elektron
+      DOCKER_INFLUXDB_INIT_BUCKET: grid
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: dev-token
+    volumes:
+      - influx-data:/var/lib/influxdb2
+    restart: unless-stopped
+
+volumes:
+  mosquitto-data:
+  influx-data:

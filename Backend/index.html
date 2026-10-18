@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grid Status</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+  :root { --bg:#fff; --fg:#161615; --muted:#6b6b66; --card:#f5f5f3; --line:#e4e4e0;
+          --on:#1d9e54; --off:#d93a2f; --idle:#8a8a85; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#161615; --fg:#f2f2ef; --muted:#a3a39c; --card:#232321; --line:#35352f; }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body { display: flex; flex-direction: column; background: var(--bg); color: var(--fg);
+         font: 15px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { padding: 12px 16px; border-bottom: 1px solid var(--line); display: flex;
+           flex-wrap: wrap; gap: 8px 20px; align-items: center; }
+  h1 { font-size: 17px; margin: 0; font-weight: 600; }
+  .counts { display: flex; gap: 14px; flex-wrap: wrap; margin-left: auto; font-size: 14px; }
+  .counts span::before { content: ""; display: inline-block; width: 10px; height: 10px;
+                         border-radius: 50%; margin-right: 6px; background: var(--c); }
+  #conn { font-size: 12px; color: var(--muted); }
+  main { flex: 1; display: flex; min-height: 0; }
+  #map { flex: 1; min-width: 0; }
+  aside { width: 320px; overflow-y: auto; border-left: 1px solid var(--line); padding: 10px; }
+  .node { display: block; width: 100%; text-align: left; background: var(--card); color: inherit;
+          border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-bottom: 8px;
+          font: inherit; cursor: pointer; }
+  .node:hover { border-color: var(--muted); }
+  .node .top { display: flex; justify-content: space-between; gap: 8px; font-weight: 600; }
+  .badge { font-size: 12px; font-weight: 600; color: #fff; padding: 2px 8px; border-radius: 99px;
+           background: var(--c); white-space: nowrap; }
+  .node .meta { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
+  .popup b { display: block; font-size: 15px; }
+  .popup .meta { color: #555; font-size: 12.5px; margin: 2px 0 6px; }
+  .popup button { font: inherit; font-size: 13px; padding: 4px 10px; border-radius: 6px;
+                  border: 1px solid #bbb; background: #fff; cursor: pointer; }
+  .popup .hist { margin-top: 6px; font-size: 13px; }
+  @media (max-width: 700px) {
+    main { flex-direction: column; }
+    #map { flex: 0 0 55%; }
+    aside { width: auto; border-left: 0; border-top: 1px solid var(--line); flex: 1; }
+    .counts { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Is there light?</h1>
+  <div class="counts">
+    <span style="--c:var(--on)"><b id="n-on">0</b> power on</span>
+    <span style="--c:var(--off)"><b id="n-off">0</b> grid down</span>
+    <span style="--c:var(--idle)"><b id="n-idle">0</b> offline / no data</span>
+  </div>
+  <div id="conn">connecting…</div>
+</header>
+<main>
+  <div id="map"></div>
+  <aside id="list"></aside>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const POLL_MS = 5000;
+const COLOR = { ON: "#1d9e54", OFF: "#d93a2f", OFFLINE: "#8a8a85", UNKNOWN: "#8a8a85" };
+const LABEL = { ON: "Power on", OFF: "Grid down", OFFLINE: "Node offline", UNKNOWN: "No data yet" };
+
+const map = L.map("map").setView([6.52, 3.38], 11);
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 19, attribution: "&copy; OpenStreetMap contributors"
+}).addTo(map);
+
+const markers = {};   // id -> L.circleMarker
+let nodes = {};       // id -> latest node data
+let fitted = false;
+
+function ago(ts) {
+  if (!ts) return "never";
+  const s = Math.max(0, Math.round(Date.now() / 1000 - ts));
+  if (s < 60) return s + "s ago";
+  if (s < 3600) return Math.floor(s / 60) + "m ago";
+  if (s < 86400) return Math.floor(s / 3600) + "h " + Math.floor((s % 3600) / 60) + "m ago";
+  return Math.floor(s / 86400) + "d ago";
+}
+
+function el(tag, props = {}, ...kids) {
+  const e = Object.assign(document.createElement(tag), props);
+  kids.forEach(k => e.append(k));
+  return e;
+}
+
+function buildPopup(n) {
+  const hist = el("div", { className: "hist" });
+  const btn = el("button", { textContent: "7-day history" });
+  btn.onclick = () => loadHistory(n.id, hist);
+  return el("div", { className: "popup" },
+    el("b", { textContent: n.name }),
+    el("div", { className: "meta", textContent:
+      LABEL[n.status] + (n.since ? " · since " + ago(n.since) : "") + " · seen " + ago(n.last_seen) }),
+    btn, hist);
+}
+
+async function loadHistory(id, out) {
+  let key = sessionStorage.getItem("apiKey");
+  if (!key) {
+    key = prompt("API key:");
+    if (!key) return;
+    sessionStorage.setItem("apiKey", key);
+  }
+  out.textContent = "loading…";
+  try {
+    const r = await fetch(`/api/nodes/${id}/history?days=7`, { headers: { "X-API-Key": key } });
+    if (r.status === 401) { sessionStorage.removeItem("apiKey"); out.textContent = "Invalid API key."; return; }
+    const h = await r.json();
+    const up = h.uptime_pct === null ? "n/a" : h.uptime_pct + "%";
+    out.textContent = `Uptime ${up} · ${h.outage_count} outage${h.outage_count === 1 ? "" : "s"} (7d)`;
+  } catch { out.textContent = "Could not load history."; }
+}
+
+function render(list) {
+  nodes = Object.fromEntries(list.map(n => [n.id, n]));
+  const counts = { on: 0, off: 0, idle: 0 };
+  const side = document.getElementById("list");
+  side.replaceChildren();
+
+  list.forEach(n => {
+    counts[n.status === "ON" ? "on" : n.status === "OFF" ? "off" : "idle"]++;
+
+    let m = markers[n.id];
+    if (!m) {
+      m = markers[n.id] = L.circleMarker([n.lat, n.lng], { radius: 11, weight: 2, color: "#fff", fillOpacity: 0.95 })
+        .addTo(map).bindPopup(() => buildPopup(nodes[n.id]));
+    }
+    m.setStyle({ fillColor: COLOR[n.status] });
+
+    const card = el("button", { className: "node" },
+      el("div", { className: "top" },
+        el("span", { textContent: n.name }),
+        Object.assign(el("span", { className: "badge", textContent: LABEL[n.status] }),
+                      { style: `--c:${COLOR[n.status]}` })),
+      el("div", { className: "meta", textContent:
+        n.area + (n.since ? " · since " + ago(n.since) : "") + " · seen " + ago(n.last_seen) }));
+    card.onclick = () => { map.flyTo([n.lat, n.lng], 14); markers[n.id].openPopup(); };
+    side.append(card);
+  });
+
+  document.getElementById("n-on").textContent = counts.on;
+  document.getElementById("n-off").textContent = counts.off;
+  document.getElementById("n-idle").textContent = counts.idle;
+
+  if (!fitted && list.length) {
+    map.fitBounds(L.latLngBounds(list.map(n => [n.lat, n.lng])).pad(0.3), { maxZoom: 13 });
+    fitted = true;
+  }
+}
+
+async function refresh() {
+  const conn = document.getElementById("conn");
+  try {
+    const r = await fetch("/api/map", { headers: { "ngrok-skip-browser-warning": "1" } });
+    if (!r.ok) throw new Error(r.status);
+    render(await r.json());
+    conn.textContent = "live · updated " + new Date().toLocaleTimeString();
+  } catch {
+    conn.textContent = "connection lost, retrying…";
+  }
+}
+
+refresh();
+setInterval(refresh, POLL_MS);
+</script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+Command: /home/ebenezer/.espressif/tools/python/v6.1/venv/bin/python /home/ebenezer/.espressif/v6.1/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/ebenezer/Documents/projects/Elektron/Elektron/build/Elektron.elf /home/ebenezer/Documents/projects/Elektron/Elektron/build/bootloader/bootloader.elf -m '/home/ebenezer/.espressif/tools/python/v6.1/venv/bin/python' '/home/ebenezer/.espressif/v6.1/esp-idf/tools/idf.py' '-p' '/dev/ttyUSB0'
+[0;32mI (13) boot: ESP-IDF v6.1 2nd stage bootloader[0m
+[0;32mI (13) boot: compile time Oct 17 2026 04:43:40[0m
+[0;32mI (13) boot: Multicore bootloader[0m
+[0;32mI (14) boot: chip revision: v3.1[0m
+[0;32mI (16) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (20) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (24) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (27) boot: Enabling RNG early entropy source...[0m
+[0;32mI (32) boot: Partition Table:[0m
+[0;32mI (34) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (41) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (47) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (54) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (60) boot: End of partition table[0m
+[0;32mI (63) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=22f78h (143224) map[0m
+[0;32mI (122) esp_image: segment 1: paddr=00032fa0 vaddr=3ffb0000 size=04764h ( 18276) load[0m
+[0;32mI (129) esp_image: segment 2: paddr=0003770c vaddr=40080000 size=0890ch ( 35084) load[0m
+[0;32mI (144) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=af5ach (718252) map[0m
+[0;32mI (400) esp_image: segment 4: paddr=000ef5d4 vaddr=4008890c size=0dc3ch ( 56380) load[0m
+[0;32mI (423) esp_image: segment 5: paddr=000fd218 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (435) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (435) boot: Disabling RNG early entropy source...[0m
+[0;32mI (446) cpu_start: Multicore app[0m
+[0;32mI (454) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (454) cpu_start: Pro cpu start user code[0m
+[0;32mI (454) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (456) app_init: Application information:[0m
+[0;32mI (460) app_init: Project name:     Elektron[0m
+[0;32mI (464) app_init: App version:      1[0m
+[0;32mI (467) app_init: Compile time:     Oct 17 2026 04:44:35[0m
+[0;32mI (472) app_init: ELF file SHA256:  43acd8e27...[0m
+[0;32mI (477) app_init: ESP-IDF:          v6.1[0m
+[0;32mI (480) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (484) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (488) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (492) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (498) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (503) heap_init: At 3FFBA5D8 len 00025A28 (150 KiB): DRAM[0m
+[0;32mI (508) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (514) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (519) heap_init: At 40096548 len 00009AB8 (38 KiB): IRAM[0m
+[0;32mI (526) spi_flash: detected chip: generic[0m
+[0;32mI (528) spi_flash: flash io: dio[0m
+[0;33mW (531) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (546) main_task: Started on CPU0[0m
+[0;32mI (547) main_task: Calling app_main()[0m
+[0;32mI (575) uart:[0m
+[boot] Elektron firmware starting
+[modem] initializing publisher
+[0;32mI (579) uart: queue free spaces: 20[0m
+SIM status: 0
+[modem] publisher initialized
+[boot] sensor event queue created (capacity=16)
+[boot] sensor initialized
+[report] task started
+[boot] report task created
+[0;32mI (133798) main_task: Returned from app_main()[0m
+[sensor] state=OFF at 133273768 us
+GSM: SIM not ready
+[mqtt] event pending; queue=1
+GSM failed repeatedly, falling back to WiFi
+transport -> WiFi
+[0;32mI (171720) wifi:wifi driver task: 3ffc64c0, prio:23, stack:6656, core=0[0m
+[0;32mI (171735) wifi:wifi firmware version: e12a754[0m
+[0;32mI (171736) wifi:wifi certification version: v7.0[0m
+[0;32mI (171736) wifi:config NVS flash: enabled[0m
+[0;32mI (171737) wifi:config nano formatting: disabled[0m
+[0;32mI (171742) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (171747) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (171751) wifi:Init management short buffer num: 32[0m
+[0;32mI (171755) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (171760) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (171764) wifi:Init static rx buffer num: 4[0m
+[0;32mI (171768) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (171774) wifi_init: rx ba win: 6[0m
+[0;32mI (171775) wifi_init: accept mbox: 6[0m
+[0;32mI (171778) wifi_init: tcpip mbox: 32[0m
+[0;32mI (171782) wifi_init: udp mbox: 6[0m
+[0;32mI (171785) wifi_init: tcp mbox: 6[0m
+[0;32mI (171788) wifi_init: tcp tx win: 5760[0m
+[0;32mI (171791) wifi_init: tcp rx win: 5760[0m
+[0;32mI (171795) wifi_init: tcp mss: 1440[0m
+[0;32mI (171798) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (171802) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (171811) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (171894) wifi:mode : sta (58:2a:bd:75:0b:f4)[0m
+[0;32mI (171895) wifi:enable tsf[0m
+[0;32mI (171901) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;32mI (171916) wifi:new:<8,0>, old:<1,0>, ap:<255,255>, sta:<8,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (171918) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (171930) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (171943) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (171981) wifi:connected with elektron, aid = 1, channel 8, BW20, bssid = 7e:c4:8b:20:63:d1[0m
+[0;32mI (171982) wifi:security: WPA2-PSK, phy: bgn, rssi: -60, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (171991) wifi:pm start, type: 1[0m
+
+[0;32mI (171991) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (173032) esp_netif_handlers: sta ip: 192.168.231.179, mask: 255.255.255.0, gw: 192.168.231.102[0m
+MQTT connect failed, state=-2
+[mqtt] event pending; queue=1
+[0;32mI (184574) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (193587) wifi:bcn_timeout,ap_probe_send_start[0m
+MQTT connect failed, state=-2
+[mqtt] event pending; queue=1
+[0;32mI (210830) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (219844) wifi:bcn_timeout,ap_probe_send_start[0m
+MQTT connect failed, state=-2
+[mqtt] event pending; queue=1
+[0;32mI (237902) wifi:bcn_timeout,ap_probe_send_start[0m
+MQTT connect failed, state=-2
+[mqtt] event pending; queue=1
+[0;32mI (253852) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (262887) wifi:bcn_timeout,ap_probe_send_start[0m
+MQTT connect failed, state=-2
+[mqtt] event pending; queue=1
+[0;32mI (279601) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (288631) wifi:bcn_timeout,ap_probe_send_start[0m
+MQTT connect failed, state=-2
+[mqtt] event pending; queue=1
+[0;32mI (302851) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (311862) wifi:bcn_timeout,ap_probe_send_start[0m
+MQTT connect failed, state=-2
+[mqtt] event pending; queue=1
+[0;32mI (325608) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (334624) wifi:bcn_timeout,ap_probe_send_start[0m
+MQTT connect failed, state=-2
+[mqtt] event pending; queue=1
+[0;32mI (348869) wifi:bcn_timeout,ap_probe_send_start[0m
+MQTT connect failed, state=-2
+[mqtt] event pending; queue=1
+[0;32mI (368622) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (377632) wifi:bcn_timeout,ap_probe_send_start[0m
+MQTT connect failed, state=-2
+[mqtt] event pending; queue=1
+[0;32mI (394882) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (403899) wifi:bcn_timeout,ap_probe_send_start[0m
+MQTT connect failed, state=-2
+[mqtt] event pending; queue=1
+[0;32mI (414108) wifi:state: run -> init (0x3c0)[0m
+[0;32mI (414113) wifi:pm stop, total sleep time: 0 us / 242121572 us[0m
+
+[0;32mI (414859) wifi:new:<6,0>, old:<8,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (414860) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (414869) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (414882) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (414913) wifi:connected with elektron, aid = 1, channel 6, BW20, bssid = 7e:c4:8b:20:63:d1[0m
+[0;32mI (414914) wifi:security: WPA2-PSK, phy: bgn, rssi: -37, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (414929) wifi:pm start, type: 1[0m
+
+[0;32mI (414931) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (414931) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (415966) esp_netif_handlers: sta ip: 192.168.231.179, mask: 255.255.255.0, gw: 192.168.231.102[0m
+MQTT connect failed, state=-2
+[mqtt] event pending; queue=1
+MQTT connect failed, state=-2
+[mqtt] event pending; queue=1
+MQTT connect failed, state=-2
+[mqtt] event pending; queue=1
+MQTT connect failed, state=-2
+[mqtt] event pending; queue=1
+[0;32mI (510761) wifi:state: run -> init (0x1c0)[0m
+[0;32mI (510766) wifi:pm stop, total sleep time: 90906064 us / 95836174 us[0m
+
+[1;31mE (520912) wifi:sta is connecting, cannot set config[0m
+[520388][E][STA.cpp:417] connect(): STA clear config failed! 0x3006: ESP_ERR_WIFI_STATE
+WiFi: connect failed
+[mqtt] event pending; queue=1
+[1;31mE (555926) wifi:sta is connecting, cannot set config[0m
+[555402][E][STA.cpp:417] connect(): STA clear config failed! 0x3006: ESP_ERR_WIFI_STATE
+[0;32mI (568900) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (568909) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (568919) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (568945) wifi:connected with elektron, aid = 1, channel 6, BW20, bssid = 7e:c4:8b:20:63:d1[0m
+[0;32mI (568946) wifi:security: WPA2-PSK, phy: bgn, rssi: -34, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (568955) wifi:pm start, type: 1[0m
+
+[0;32mI (568955) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (569015) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (569016) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (569993) esp_netif_handlers: sta ip: 192.168.231.179, mask: 255.255.255.0, gw: 192.168.231.102[0m
+MQTT connect failed, state=-4
+[mqtt] event pending; queue=1
+[mqtt] event sent; pending=0
+[mqtt] heartbeat sent; state=OFF
+[0;32mI (635268) wifi:sta rx csa, newchan=3, old=6[0m
+[0;32mI (635770) wifi:switch to channel 3[0m
+[0;32mI (635770) wifi:new:<3,0>, old:<6,0>, ap:<255,255>, sta:<3,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (641678) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (658001) wifi:sta rx csa, newchan=8, old=3[0m
+[0;32mI (658502) wifi:switch to channel 8[0m
+[0;32mI (658503) wifi:new:<8,0>, old:<3,0>, ap:<255,255>, sta:<8,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (662711) wifi:sta rx csa, newchan=3, old=8[0m
+[0;32mI (663112) wifi:switch to channel 3[0m
+[0;32mI (663113) wifi:new:<3,0>, old:<8,0>, ap:<255,255>, sta:<3,0>, prof:1, snd_ch_cfg:0x0[0m
+transport -> GSM
+GSM: SIM not ready
+[mqtt] heartbeat deferred
+GSM failed repeatedly, falling back to WiFi
+transport -> WiFi
+[0;32mI (954038) wifi:<ba-add>idx:0 (ifx:0, 7e:c4:8b:20:63:d1), tid:0, ssn:16, winSize:64[0m
+[mqtt] heartbeat sent; state=OFF
+[mqtt] heartbeat sent; state=OFF
