@@ -16,6 +16,7 @@ env = os.environ.get
 PREFIX = env("TOPIC_PREFIX", "grid")
 HEARTBEAT_S = int(env("HEARTBEAT_S", "300"))
 OFFLINE_AFTER_S = int(env("OFFLINE_AFTER_S", str(HEARTBEAT_S * 3)))
+LIVE_WINDOW_S = int(env("LIVE_WINDOW_S", "10"))   # power ON reported this recently = shown live
 NODES = json.loads(Path(__file__).with_name("nodes.json").read_text())
 
 influx = InfluxDBClient3(host=os.environ["INFLUX_HOST"], token=os.environ["INFLUX_TOKEN"],
@@ -23,7 +24,7 @@ influx = InfluxDBClient3(host=os.environ["INFLUX_HOST"], token=os.environ["INFLU
 
 # In-memory current state per node, kept fresh by the MQTT thread.
 lock = threading.Lock()
-state = {n: {"state": "UNKNOWN", "since": None, "info_ts": 0, "last_seen": None, "online": None}
+state = {n: {"state": "UNKNOWN", "since": None, "info_ts": 0, "last_seen": None, "online": None, "last_on": None}
          for n in NODES}
 
 
@@ -34,6 +35,8 @@ def apply_state(node, st, ts):
         if st != s["state"]:
             s["since"] = ts
         s["state"], s["info_ts"] = st, ts
+        return True
+    return False
 
 
 def seed_state():
@@ -89,7 +92,8 @@ def on_message(c, userdata, msg):
             p = p.field("vbat", float(d["vbat"])).field("rssi", int(d["rssi"])).field("fw", str(d["fw"]))
         with lock:
             state[node]["last_seen"], state[node]["online"] = now, True
-            apply_state(node, st, int(d["ts"]))
+            if apply_state(node, st, int(d["ts"])) and st == "ON":
+                state[node]["last_on"] = now      # fresh proof the power is on
         influx.write(record=p)
     except Exception as e:
         print("bad message:", msg.topic, e)
@@ -141,15 +145,19 @@ def node_map():
         for nid, meta in NODES.items():
             s = state[nid]
             stale = s["last_seen"] is None or now - s["last_seen"] > OFFLINE_AFTER_S
+            live = (s["state"] == "ON" and s["last_on"] is not None
+                    and now - s["last_on"] <= LIVE_WINDOW_S)
             if s["state"] == "UNKNOWN":
                 status = "UNKNOWN"
+            elif live:
+                status = "ON"               # recent ON report wins over stale offline flags
             elif stale or s["online"] is False:
                 status = "OFFLINE"          # node lost contact: not the same as grid down
             else:
                 status = s["state"]         # ON = power live, OFF = grid down
             out.append({"id": nid, "name": meta["name"], "area": meta["area"],
                         "lat": meta["lat"], "lng": meta["lng"], "status": status,
-                        "since": s["since"], "last_seen": s["last_seen"]})
+                        "since": s["since"], "last_seen": s["last_seen"], "live": live})
     return out
 
 
