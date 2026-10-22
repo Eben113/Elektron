@@ -14,7 +14,7 @@ load_dotenv()
 env = os.environ.get
 
 PREFIX = env("TOPIC_PREFIX", "grid")
-HEARTBEAT_S = int(env("HEARTBEAT_S", "300"))
+HEARTBEAT_S = int(env("HEARTBEAT_S", "120"))
 OFFLINE_AFTER_S = int(env("OFFLINE_AFTER_S", str(HEARTBEAT_S * 3)))
 LIVE_WINDOW_S = int(env("LIVE_WINDOW_S", "10"))   # power ON reported this recently = shown live
 NODES = json.loads(Path(__file__).with_name("nodes.json").read_text())
